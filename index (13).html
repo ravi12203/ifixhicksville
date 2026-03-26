@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IFix – Phone & Computer Repair in Hicksville, NY</title>
+  <meta name="description" content="Professional phone, tablet, and computer repair in Hicksville, NY. Same-day screen repair, battery replacement, water damage, and more. Visit us at 22 Newbridge Rd."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --dark: #111111;
+      --card: #181818;
+      --border: #2a2a2a;
+      --accent: #00e5ff;
+      --accent2: #ff3d00;
+      --white: #f0f0f0;
+      --muted: #888;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 2px;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: var(--black) !important;
+      padding: 8px 20px;
+      border-radius: 4px;
+      font-weight: 600 !important;
+      color: #000 !important;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 120px 48px 80px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 50%, rgba(0,229,255,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(255,61,0,0.05) 0%, transparent 60%);
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 700px;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,229,255,0.1);
+      border: 1px solid rgba(0,229,255,0.3);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero-tag::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 9vw, 8rem);
+      line-height: 0.95;
+      letter-spacing: 2px;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+
+    h1 .accent { color: var(--accent); }
+    h1 .accent2 { color: var(--accent2); }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin: 24px 0 36px;
+      max-width: 500px;
+      line-height: 1.7;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0,229,255,0.3);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      background: rgba(0,229,255,0.05);
+    }
+
+    .hero-stats {
+      position: absolute;
+      right: 48px;
+      bottom: 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+
+    .stat {
+      text-align: right;
+    }
+
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.8rem;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* TICKER */
+    .ticker {
+      background: var(--accent);
+      color: #000;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 3px;
+      padding: 10px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-inner {
+      display: inline-flex;
+      animation: ticker 20s linear infinite;
+    }
+
+    .ticker-inner span { padding: 0 40px; }
+    .ticker-inner span::after { content: '✦'; margin-left: 40px; }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* SECTIONS */
+    section { padding: 100px 48px; }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      letter-spacing: 2px;
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      max-width: 500px;
+      margin-bottom: 60px;
+      font-size: 1rem;
+    }
+
+    /* SERVICES */
+    #services { background: var(--dark); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .service-card {
+      background: var(--card);
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+      cursor: default;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-desc {
+      flex: 1;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 0;
+      background: var(--accent);
+      transition: height 0.3s;
+    }
+
+    .service-card:hover { background: #1e1e1e; }
+    .service-card:hover::before { height: 100%; }
+
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    .service-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .service-desc {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .service-price {
+      margin-top: 16px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* WHY US */
+    #why {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      padding: 100px 48px;
+    }
+
+    .why-list {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    .why-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .why-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      color: var(--border);
+      line-height: 1;
+      min-width: 48px;
+      transition: color 0.3s;
+    }
+
+    .why-item:hover .why-num { color: var(--accent); }
+
+    .why-title {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .why-text {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .why-visual {
+      position: relative;
+    }
+
+    .why-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .why-box::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle at center, rgba(0,229,255,0.05) 0%, transparent 60%);
+    }
+
+    .rating-big {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 7rem;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stars { font-size: 1.5rem; margin: 8px 0; }
+
+    .rating-label {
+      color: var(--muted);
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 32px 0;
+    }
+
+    .why-box-stat {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      color: var(--white);
+    }
+
+    /* CONTACT */
+    #contact { background: var(--dark); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-top: 60px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .contact-icon {
+      width: 44px; height: 44px;
+      background: rgba(0,229,255,0.1);
+      border: 1px solid rgba(0,229,255,0.2);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .contact-val {
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .contact-val a {
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-val a:hover { color: var(--accent); }
+
+    .map-placeholder {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      height: 320px;
+    }
+
+    .map-placeholder iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: grayscale(1) invert(1);
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 40px 48px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+    }
+
+    .footer-logo span { color: var(--accent); }
+
+    .footer-copy {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 100px 20px 60px; }
+      .hero-stats { display: none; }
+      section { padding: 70px 20px; }
+      #why { grid-template-columns: 1fr; gap: 40px; padding: 70px 20px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      footer { padding: 32px 20px; flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">i<span>Fix</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="tel:5165451873" class="nav-cta">Call Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Hicksville, New York</div>
+    <h1>WE FIX<br><span class="accent">PHONES.</span><br>LAPTOPS.<br><span class="accent2">TABLETS.</span></h1>
+    <p class="hero-sub">Same-day repair for all major brands. Cracked screen? Dead battery? Water damage? We've got you covered at 22 Newbridge Rd.</p>
+    <div class="hero-buttons">
+      <a href="tel:5165451873" class="btn-primary">📞 Call (516) 545-1873</a>
+      <a href="#services" class="btn-secondary">See Services</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">4.8★</div>
+      <div class="stat-label">Google Rating</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">188+</div>
+      <div class="stat-label">Reviews</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">Same Day</div>
+      <div class="stat-label">Service</div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>IPHONE REPAIR</span>
+    <span>SAMSUNG REPAIR</span>
+    <span>SCREEN REPLACEMENT</span>
+    <span>BATTERY REPLACEMENT</span>
+    <span>WATER DAMAGE</span>
+    <span>LAPTOP REPAIR</span>
+    <span>TABLET REPAIR</span>
+    <span>DATA RECOVERY</span>
+    <span>SAME DAY SERVICE</span>
+    <span>IPHONE REPAIR</span>
+    <span>SAMSUNG REPAIR</span>
+    <span>SCREEN REPLACEMENT</span>
+    <span>BATTERY REPLACEMENT</span>
+    <span>WATER DAMAGE</span>
+    <span>LAPTOP REPAIR</span>
+    <span>TABLET REPAIR</span>
+    <span>DATA RECOVERY</span>
+    <span>SAME DAY SERVICE</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-label">What We Fix</div>
+  <h2>OUR SERVICES</h2>
+  <p class="section-sub">Professional repairs for all major brands. Most repairs completed same-day.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">📱</div>
+      <div class="service-name">Screen Repair</div>
+      <div class="service-desc">Cracked or shattered screen? We replace screens for iPhone, Samsung, Google Pixel, and all major brands.</div>
+      <div class="service-price">From $49</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔋</div>
+      <div class="service-name">Battery Replacement</div>
+      <div class="service-desc">Restore your phone's battery life with a professional replacement. All major brands supported.</div>
+      <div class="service-price">From $39</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💧</div>
+      <div class="service-name">Water Damage Repair</div>
+      <div class="service-desc">Dropped your phone in water? Bring it in ASAP. We diagnose and repair water-damaged devices fast.</div>
+      <div class="service-price">Call for pricing</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💻</div>
+      <div class="service-name">Laptop Repair</div>
+      <div class="service-desc">Screen replacement, keyboard repair, battery, and motherboard repair for Dell, HP, Lenovo, MacBook & more.</div>
+      <div class="service-price">Call for pricing</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🖥️</div>
+      <div class="service-name">Computer Repair</div>
+      <div class="service-desc">Slow PC, virus removal, hardware failures — we fix desktops and laptops of all brands.</div>
+      <div class="service-price">Call for pricing</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📟</div>
+      <div class="service-name">Tablet Repair</div>
+      <div class="service-desc">iPad, Samsung Galaxy Tab, Amazon Fire — screen, battery, and hardware repair available.</div>
+      <div class="service-price">Call for pricing</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔌</div>
+      <div class="service-name">Charge Port Repair</div>
+      <div class="service-desc">Phone not charging? We clean and replace charge ports on all major smartphone brands.</div>
+      <div class="service-price">Call for pricing</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📷</div>
+      <div class="service-name">Camera Repair</div>
+      <div class="service-desc">Blurry or broken front/rear camera? We repair and replace cameras on all major smartphones.</div>
+      <div class="service-price">Call for pricing</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔊</div>
+      <div class="service-name">Speaker & Mic Repair</div>
+      <div class="service-desc">Muffled sound or no audio? Speaker and microphone repair for all major smartphone models.</div>
+      <div class="service-price">Call for pricing</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div>
+    <div class="section-label">Why Choose IFix</div>
+    <h2>TRUSTED BY HICKSVILLE</h2>
+    <div class="why-list">
+      <div class="why-item">
+        <div class="why-num">01</div>
+        <div>
+          <div class="why-title">Same-Day Service</div>
+          <div class="why-text">Most repairs are completed the same day you walk in. No waiting days or weeks for your device.</div>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">02</div>
+        <div>
+          <div class="why-title">All Major Brands</div>
+          <div class="why-text">iPhone, Samsung, Google, LG, OnePlus, iPad, MacBook — we fix them all.</div>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">03</div>
+        <div>
+          <div class="why-title">Quality Parts</div>
+          <div class="why-text">We use high-quality replacement parts to ensure your device works like new after the repair.</div>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">04</div>
+        <div>
+          <div class="why-title">Transparent Pricing</div>
+          <div class="why-text">No hidden fees. We give you a quote before we start any work.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="why-visual">
+    <div class="why-box">
+      <div class="rating-big">4.8</div>
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <div class="rating-label">188 Google Reviews</div>
+      <div class="divider"></div>
+      <div class="why-box-stat">908+</div>
+      <div class="rating-label">Customer Interactions</div>
+      <div class="divider"></div>
+      <div class="why-box-stat">Same Day</div>
+      <div class="rating-label">Most Repairs</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Find Us</div>
+  <h2>VISIT OUR STORE</h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-label">Address</div>
+          <div class="contact-val">22 Newbridge Rd, Hicksville, NY 11801<br><small style="color:var(--muted)">Located in NYCB Plaza</small></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-label">Phone</div>
+          <div class="contact-val"><a href="tel:5165451873">(516) 545-1873</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🕐</div>
+        <div>
+          <div class="contact-label">Hours</div>
+          <div class="contact-val">
+            Mon–Fri: 10:00 AM – 7:00 PM<br>
+            Sat: 10:00 AM – 6:00 PM<br>
+            Sun: Closed
+          </div>
+        </div>
+      </div>
+      <a href="tel:5165451873" class="btn-primary" style="align-self:flex-start; margin-top:8px;">📞 Call Now</a>
+    </div>
+    <div class="map-placeholder">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.3!2d-73.525!3d40.768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c27e2b3e8b0001%3A0x1!2s22+Newbridge+Rd%2C+Hicksville%2C+NY+11801!5e0!3m2!1sen!2sus!4v1"
+        allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">i<span>Fix</span></div>
+  <div class="footer-copy">© 2025 IFix Hicksville · 22 Newbridge Rd, Hicksville, NY 11801</div>
+  <div class="footer-copy">Phone & Computer Repair</div>
+</footer>
+
+</body>
+</html>
